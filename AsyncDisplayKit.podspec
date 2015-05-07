@@ -20,6 +20,8 @@ Pod::Spec.new do |spec|
       'Base/*.{h,m}'
   ]
 
+  spec.requires_arc = true
+
   spec.frameworks = 'AssetsLibrary'
   spec.weak_frameworks = 'Photos'
 
@@ -38,9 +40,11 @@ Pod::Spec.new do |spec|
   spec.social_media_url = 'https://twitter.com/fbOpenSource'
   spec.library = 'c++'
   spec.xcconfig = {
+       'OTHER_LDFLAGS' => '-ObjC',
        'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
        'CLANG_CXX_LIBRARY' => 'libc++'
   }
 
+  spec.platform = :ios
   spec.ios.deployment_target = '7.0'
 end
